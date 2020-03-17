@@ -7,7 +7,6 @@ from django.core import serializers
 def index(request):
   coffee_collection = Coffee.objects.all()
   print(coffee_collection)
-  # return JsonResponse(coffee_collection, safe=False)
   return render(request, 'coffee/collection.html', { 'all_coffee': coffee_collection })
 
 def add_coffee(request):

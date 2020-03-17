@@ -19,25 +19,47 @@
             }
           }
         );
-      } else { console.log('noooo') }
+      }
     }
   </script>
 
+  <div class='row'>
+    <div style="float: right; margin-top: 25px;">
+      <a href='/create'>
+        <button
+          class="teal darken-3 btn"
+        >
+          Add New Coffee
+        </button>
+      </a>
+    </div>
+  </div>
   <div class="row">
     {% csrf_token %}
     {% for coffee in all_coffee %}
       <div class="col s12 m6 l4">
-        <div class="card blue-grey darken-1">
+        <div class="card grey">
           <div class="card-content white-text">
-            <span class="card-title">{{ coffee.name }}</span>
-            <p style="font-size: 70%;">{{ coffee.roaster }}</p>
-            <p>{{ coffee.brew_method }}</p>
-            <p>{{ coffee.variety }}</p>
-            <p>{{ coffee.tasting_notes }}</p>
+            <h3><span class="card-title">{{ coffee.name }}</span></h3>
+            <h6><strong>Roaster: </strong>{{ coffee.roaster }}</h6>
+            <h6><strong>Brew Method: </strong>{{ coffee.brew_method }}</h6>
+            <h6><strong>Variety: </strong>{{ coffee.variety }}</h6>
+            <h6><strong>Tasting Notes: </strong>{{ coffee.tasting_notes }}</h6>
           </div>
           <div class="card-action">
-            <a href="edit/{{coffee.id}}" id="{{coffee.id}}">Edit</a>
-            <button onclick="deleteClick('{{ coffee.id }}')">del</button>
+            <a
+              href="edit/{{coffee.id}}"
+              id="{{coffee.id}}"
+              style='color: #00695c;'
+            >
+              <strong>Edit</strong>
+            </a>
+            <button
+              class="waves-effect waves-light btn teal darken-3"
+              onclick="deleteClick('{{ coffee.id }}')"
+            >
+              Delete
+            </button>
           </div>
         </div>
       </div>
