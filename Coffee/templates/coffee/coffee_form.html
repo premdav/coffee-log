@@ -2,9 +2,9 @@
 {% block content %}
   <div class="row">
     <h1 class="center-align">Upload Coffee</h1>
-    <form method='POST' enctype="multipart/form-data">
+    <form method="POST" enctype="multipart/form-data">
       {% csrf_token %}
-      <table class='highlight' style="border-radius:10px;background-color:#FFFF99;">
+      <table class='highlight' style="border-radius:10px;">
           {% for field in c_form %}
           <tr>
               <th>{{field.label}}</th>
@@ -12,7 +12,7 @@
           </tr>
           {% endfor %}
       </table>
-      <button type="submit" class="btn waves-effect waves-light">Submit</button>
+      <button type="submit" class="btn-large teal darken-3 waves-effect waves-light" style="margin-top: 25px;">Submit</button>
     </form>
   </div>
 {% endblock %}

@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect
 from .models import Coffee
 from .forms import CreateCoffee
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
+from django.core import serializers
 
 def index(request):
   coffee_collection = Coffee.objects.all()
+  print(coffee_collection)
   return render(request, 'coffee/collection.html', { 'all_coffee': coffee_collection })
 
 def add_coffee(request):
@@ -32,10 +34,13 @@ def update_coffee(request, coffee_id):
   return render(request, 'coffee/coffee_form.html', {'c_form': coffee_form})
 
 def delete_coffee(request, coffee_id):
-  c_id = int(coffee_id)
-  try:
-    selected_coffee = Coffee.objects.get(id = c_id)
-  except Coffee.DoesNotExist:
+  if request.method == 'DELETE':
+    print(request)
+    c_id = int(coffee_id)
+    try:
+      selected_coffee = Coffee.objects.get(id = c_id)
+    except Coffee.DoesNotExist:
+      return redirect('index')
+    selected_coffee.delete()
     return redirect('index')
-  selected_coffee.delete()
   return redirect('index')
