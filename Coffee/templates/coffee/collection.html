@@ -37,7 +37,7 @@
   </div>
   <div class="row">
     {% csrf_token %}
-    <div id='errorField'></div>
+    <h2 id='errorField' style="color: red;"></h2>
     {% for coffee in all_coffee %}
       <div class="col s12 m6 l4">
         <div class="card grey" style="min-height: 450px;">
