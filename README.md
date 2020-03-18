@@ -1,6 +1,8 @@
 # coffee-log
 Simple Django app that allows the user to take notes about coffees consumed
 
+For a demo please visit: https://desolate-ridge-53054.herokuapp.com/
+
 ## Idea
 - Simple CRUD app that allows users to track different attributes commonly associated with high quality coffee such as:
   - Roaster
