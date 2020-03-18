@@ -38,7 +38,7 @@
     {% csrf_token %}
     {% for coffee in all_coffee %}
       <div class="col s12 m6 l4">
-        <div class="card grey">
+        <div class="card grey" style="min-height: 450px;">
           <div class="card-content white-text">
             <h3><span class="card-title">{{ coffee.name }}</span></h3>
             <h6><strong>Roaster: </strong>{{ coffee.roaster }}</h6>
