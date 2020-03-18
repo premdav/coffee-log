@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Coffee
 from .forms import CreateCoffee
 from django.http import HttpResponse, JsonResponse
+from django.core import serializers
 
 def index(request):
   coffee_collection = Coffee.objects.all()
